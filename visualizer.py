@@ -1,3 +1,4 @@
+import asyncio
 import pygame
 import sys
 import settings
@@ -57,11 +58,11 @@ class Visualizer:
         
         pygame.display.flip()
 
-    def run(self):
+    async def run(self):
         while True:
             self.handle_input()
             self.draw()
-            self.clock.tick(60)
+            await asyncio.sleep(0)
     
     def pixel_to_cartesian(self, x, y):
         cart_x = (x-settings.WIDTH/2) / (settings.WIDTH/2)
